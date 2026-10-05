@@ -1,0 +1,189 @@
+/* basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, serif;
+  background-color: #fff4e6;
+  color: #3d2b35;
+  line-height: 1.7;
+  font-size: 18px;
+}
+
+/* top bar - always stays on top */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #3d2b35;
+  color: white;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  overflow: hidden;
+  z-index: 10;
+  animation: topbarReveal 0.9s ease-out both;
+}
+
+.topbar::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 100%;
+  height: 3px;
+  background: #e8921a;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  animation: topbarLine 1s ease-out 0.5s forwards;
+}
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 90px 20px 30px 20px;
+  animation: fadeIn 1.5s;
+}
+
+/* page and topbar entrance animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes topbarReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes topbarLine {
+  to {
+    transform: translateX(-50%) scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .topbar,
+  .topbar::after,
+  .container {
+    animation: none;
+  }
+}
+
+/* heading */
+.heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.small-text {
+  color: #1f8a8a;
+  font-style: italic;
+}
+
+.heading h1 {
+  font-size: 48px;
+  margin: 10px 0;
+}
+
+.heading h2 {
+  font-size: 32px;
+  color: #e8921a;
+  margin-bottom: 15px;
+}
+
+/* letter box */
+.letter {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.letter h3 {
+  margin-bottom: 10px;
+}
+
+.letter p {
+  margin-bottom: 12px;
+}
+
+/* list */
+.list-title {
+  margin: 35px 0 10px 0;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  background-color: white;
+  border-left: 5px solid #e8921a;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+}
+
+li:nth-child(1) {
+  border-left-color: #1f8a8a;
+}
+
+li:nth-child(2) {
+  border-left-color: #e8921a;
+}
+
+li:nth-child(3) {
+  border-left-color: #9b59b6;
+}
+
+/* sign */
+.sign {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.my-name {
+  font-size: 30px;
+  font-weight: bold;
+  color: #e8921a;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #3d2b35;
+  color: white;
+  font-size: 15px;
+}
+.footer span {
+  color: #e8921a;
+  font-weight: bold;
+}
+
+/* for small phone screens */
+@media (max-width: 500px) {
+  .heading h1 {
+    font-size: 34px;
+  }
+  .heading h2 {
+    font-size: 26px;
+  }
+  .topbar {
+    font-size: 13px;
+  }
+}
